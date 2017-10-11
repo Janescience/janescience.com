@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+
+  <h1 id="bigOne"></h1>
+
+  <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyD1twPEF37eNG74L8RBVIi259sIqGZYzts",
+      authDomain: "myfirebaseauthapp-f70ce.firebaseapp.com",
+      databaseURL: "https://myfirebaseauthapp-f70ce.firebaseio.com",
+      projectId: "myfirebaseauthapp-f70ce",
+      storageBucket: "myfirebaseauthapp-f70ce.appspot.com",
+      messagingSenderId: "194690236138"
+    };
+    firebase.initializeApp(config);
+
+
+
+  var bigOne = document.getElementById('newsIT');
+  var dbRef = firebase.database().ref().child('text');
+  var message = null;
+  dbRef.on('value',snap => {
+          bigOne.innerText= snap.val();
+
+  });
+
+</script>
+</body>
+</html>
